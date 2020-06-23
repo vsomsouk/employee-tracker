@@ -21,7 +21,7 @@ connection.connect(function(err) {
 });
 
 function runStart () {
-    inquierer
+    inquirer
     .prompt({
         name: "action",
         type: "list",

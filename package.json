@@ -1,0 +1,22 @@
+{
+  "name": "employee-tracker",
+  "version": "1.0.0",
+  "description": "Creating a content management system utilizing node, inquirer and My SQL. In this assignment, we will be creating an employee tracker. Information will be broken down by department, employee's personal information and their roles.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vsomsouk/employee-tracker.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vsomsouk/employee-tracker/issues"
+  },
+  "homepage": "https://github.com/vsomsouk/employee-tracker#readme",
+  "dependencies": {
+    "mysql": "^2.18.1"
+  }
+}
