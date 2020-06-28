@@ -1,7 +1,8 @@
-var mysql = require("mysql");
-var inquirer = require("inquirer");
+const mysql = require("mysql");
+const inquirer = require("inquirer");
+const cTable = require('console.table')
 
-var connection = mysql.createConnection({
+const connection = mysql.createConnection({
   host: "localhost",
 
   // port
@@ -76,12 +77,12 @@ function runStart () {
 
 
 function addDepartment() {
-  inquirer.prompt ({
+  inquirer.prompt ([{
     name:"dept_name",
     type: "input",
-    message: "Department Name?"
-  })
-  .then(function(answer){
+    message: "Department name?"
+  }
+]).then(function(answer){
     connection.query(
       "INSERT INTO department SET ?",
       {
@@ -90,24 +91,119 @@ function addDepartment() {
       function (err) {
         if (err) throw err;
         console.log("Department has been added.")
+
+        console.table();
+      runStart();
+      }
+    );
+  });
+}
+
+// addRoles();
+function addRoles() {
+  inquirer.prompt ([{
+    name:"title",
+    type: "input",
+    message: "What is the title?"
+  },
+  {
+    name:"salary_number",
+    type: "input",
+    message: "What is the salary?"
+  },
+  {
+    name:"department_id",
+    type: "input",
+    message: "What is the department id?"
+  }
+]).then(function(answer){
+    connection.query(
+      "INSERT INTO roles SET ?",
+      {
+        title: answer.title,
+        salary: answer.salary_number,
+        department_id: answer.department_id
+      },
+   
+
+      function (err) {
+        if (err) throw err;
+        console.log("Roles has been added.")
         runStart();
       }
     );
   });
 }
 
+//add Employee();
+function addEmployee() {
+  inquirer.prompt ([{
+    name:"firstName",
+    type: "input",
+    message: "What is the first name?"
+  },
+  {
+    name:"lastName",
+    type: "input",
+    message: "What is the last name?"
+  },
+  {
+    name:"roleId",
+    type: "input",
+    message: "What is the role ID?"
+  },
+  {
+    name:"managerId",
+    type: "input",
+    message: "If a manager, what is the manager ID?"
+  }
+]).then(function(answer){
+    connection.query(
+      "INSERT INTO employee SET ?",
+      {
+        first_name: answer.firstName,
+        last_name: answer.lastName,
+        role_id: answer.roleId,
+        manager_id: answer.managerId
+      },
+   
 
-
-
-
-
-
-//add Employees();
+      function (err) {
+        if (err) throw err;
+        console.log("Employee has been added.")
+        runStart();
+      }
+    );
+  });
+}
 
 //viewDepartment();
+function viewDepartment () {
+  const query = "SELECT * FROM department"
+  connection.query(query, function (err, res) {
+    if (err) throw err;
+    console.table(res);
+    runStart();
+  }
+  )};
 
 //viewRoles();
+function viewRoles () {
+  const query = "SELECT * FROM roles"
+  connection.query(query, function (err, res) {
+    if (err) throw err;
+    console.table(res);
+    runStart();
+  }
+  )};
 
 //viewEmployees();
+function viewEmployees () {
+  const query = "SELECT * FROM employee"
+  connection.query(query, function (err, res) {
+    if (err) throw err;
+    console.table(res);
+    runStart();
+  }
+  )};
 
-//exit();
