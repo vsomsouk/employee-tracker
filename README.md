@@ -11,7 +11,7 @@ npm install
 ```
 
 ## Demo
-
+![](/Demo/employee-tracker.gif)
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
