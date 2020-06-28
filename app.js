@@ -155,7 +155,7 @@ function addEmployee() {
   {
     name:"managerId",
     type: "input",
-    message: "If a manager, what is the manager ID?"
+    message: "What is the manager ID?"
   }
 ]).then(function(answer){
     connection.query(
