@@ -11,8 +11,8 @@ npm install
 ```
 
 ## Demo
-![](/demo/employee-tracker.gif =300x250)
-<img src="/demo/employee-tracker.gif" width="250" height="250"/>
+
+<img src="/demo/employee-tracker.gif" width="500" height="400"/>
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
