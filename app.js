@@ -74,28 +74,33 @@ function runStart () {
       });
  };
 
-/*  connection.connect(function(err) {
-  if (err) throw err;
-  console.log("connected as id " + connection.threadId + "\n");
-  addDepartment();
-});
 
-function addDepartment(); {
-  console.log("Adding New Department...\n");
-  var query = connection.query(
-    "INSERT INTO department SET ?",
-    {
-      : "DEPARTMENT NAME",
-    },
-    function(err, res) {
-      if (err) throw err;
-      console.log(res.affectedRows + " product inserted!\n");
-      // Call updateProduct AFTER the INSERT completes
-      updateProduct();
-    }
-  ); */
+function addDepartment() {
+  inquirer.prompt ({
+    name:"dept_name",
+    type: "input",
+    message: "Department Name?"
+  })
+  .then(function(answer){
+    connection.query(
+      "INSERT INTO department SET ?",
+      {
+        dept_name: answer.dept_name
+      },
+      function (err) {
+        if (err) throw err;
+        console.log("Department has been added.")
+        runStart();
+      }
+    );
+  });
+}
 
-//addRoles();
+
+
+
+
+
 
 //add Employees();
 
