@@ -10,6 +10,11 @@ Creating a content management system utilizing node, inquirer and My SQL. In thi
 npm install
 ```
 
+## Instructions
+- On your command line, clone GitHub repository: https://github.com/vsomsouk/employee-tracker.git
+- npm i packages
+- node app.js
+
 ## Demo
 
 <img src="/demo/employee-tracker.gif" width="800" height="700"/>
