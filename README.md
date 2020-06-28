@@ -12,7 +12,7 @@ npm install
 
 ## Demo
 
-<img src="/demo/employee-tracker.gif" width="500" height="400"/>
+<img src="/demo/employee-tracker.gif" width="650" height="400"/>
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
